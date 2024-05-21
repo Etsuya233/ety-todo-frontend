@@ -17,3 +17,18 @@ export const todoPage = async (data) => {
         params: data
     })
 }
+
+export const updateTodoStatusBatch = async (data) => {
+    return axioss({
+        method: "post",
+        url: `${TODO_GATEWAY_PREFIX}/todo/status`,
+        data: data
+    })
+}
+
+export const getAllGroup = async () => {
+    return axioss({
+        method: "get",
+        url: `${TODO_GATEWAY_PREFIX}/todo-group`,
+    })
+}

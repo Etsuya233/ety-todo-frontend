@@ -1,8 +1,8 @@
 <template>
     <div class="flex justify-center">
-        <RouterView class="max-w-lg"/>
+        <RouterView class="max-w-lg w-full"/>
     </div>
-    <LowerMenuBar class="fixed inset-x-0 bottom-2 z-10"/>
+    <LowerMenuBar class="inset-x-0 p-2 bottom-0 z-40 fixed"/>
 </template>
 
 <script setup>

@@ -1,8 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import useUserStore from "@/store/userStore.js";
 
-// const userStore = useUserStore();
-
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
@@ -43,14 +41,24 @@ const router = createRouter({
                 requireAuth: false,
                 keepAlive: false
             }
+        },
+        {
+            path: '/test',
+            name: 'test',
+            component: () => import("@/views/test/Test.vue"),
+            meta: {
+                requireAuth: false,
+                keepAlive: false
+            }
         }
     ]
 })
 
-// router.beforeEach((to, from) => {
-//     if(to.meta.requireAuth === true && userStore.token === undefined){
-//         return {name: 'welcome'};
-//     }
-// })
+router.beforeEach((to, from) => {
+    const userStore = useUserStore();
+    if(to.meta.requireAuth === true && userStore.isLoggedIn === false){
+        return {name: 'welcome'};
+    }
+})
 
 export default router;

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center bg-gradient-to-t from-base-200 to-base-0/100">
         <ul class="menu menu-horizontal bg-base-200 rounded-box shadow-lg p-3">
             <li @click="router.push({name: 'todo'})">
                 <a>

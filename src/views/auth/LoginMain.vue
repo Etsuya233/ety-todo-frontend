@@ -36,6 +36,7 @@ let loginData = reactive({
 const loginWithPassword = async () => {
     let response = await loginPw(toRaw(loginData));
     userStore.token = response.data.data;
+    userStore.isLoggedIn = true;
     router.push({name: 'todo'});
 }
 
