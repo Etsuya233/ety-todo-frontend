@@ -30,6 +30,15 @@ const router = createRouter({
                         requireAuth: true,
                         keepAlive: true
                     }
+                },
+                {
+                    path: '/user',
+                    name: 'user',
+                    component: () => import("@/views/user/UserMain.vue"),
+                    meta: {
+                        requireAuth: true,
+                        keepAlive: true
+                    }
                 }
             ]
         },

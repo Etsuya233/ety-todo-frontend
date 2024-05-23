@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import ListItem from "@/components/list/ListItem.vue";
+import ListItem from "@/components/list/TodoListItem.vue";
 import LowerMenuBar from "@/components/app/LowerMenuBar.vue";
 import {todoPage} from "@/api/todo.js";
 import {useRouter} from "vue-router";
@@ -14,7 +14,7 @@ import {onMounted, reactive, ref, toRaw} from "vue";
 
 const router = useRouter();
 
-onMounted(async () => {
+onMounted(() => {
     router.push({name: 'todo'});
 })
 

@@ -24,6 +24,7 @@ import {ref, reactive, toRaw} from "vue";
 import {loginPw} from "@/api/auth.js";
 import {useUserStore} from "@/store/userStore.js";
 import {useRouter} from "vue-router";
+import {getCurrentUser} from "@/api/user.js";
 
 const userStore = useUserStore();
 const router = useRouter();
@@ -37,6 +38,10 @@ const loginWithPassword = async () => {
     let response = await loginPw(toRaw(loginData));
     userStore.token = response.data.data;
     userStore.isLoggedIn = true;
+    response = await getCurrentUser();
+    userStore.name = response.data.data.name;
+    userStore.avatar = response.data.data.avatar;
+    userStore.vip = response.data.data.vip;
     router.push({name: 'todo'});
 }
 

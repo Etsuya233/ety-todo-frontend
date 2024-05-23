@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import ListItem from "@/components/list/ListItem.vue";
+import ListItem from "@/components/list/TodoListItem.vue";
 import {todoPage, updateTodoStatusBatch} from "@/api/todo.js";
 import {onMounted, reactive, ref, toRaw} from "vue";
 import TodoMainTop from "@/views/todo/TodoMainTop.vue";
@@ -107,7 +107,6 @@ onMounted(async () => {
     let allTotal = 0;
     let allCompleted = 0;
     response.data.data.forEach((item, index) => {
-        console.log(index);
         groupData.id2indexMap.set(item.id, index + 1);
         allTotal += item.totalCount;
         allCompleted += item.completedCount;
